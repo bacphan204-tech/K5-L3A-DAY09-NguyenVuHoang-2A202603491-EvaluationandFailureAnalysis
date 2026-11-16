@@ -23,7 +23,7 @@ Integration: quản lý repo nhóm, ghép code của các thành viên về `mai
   - mỗi shape giữ contract `run_claim` (run_id, status, trace sạch);
   - chạy cả 3 shape trên cùng một DB vẫn chỉ có một refund (idempotency của host dùng chung);
   - số tiền không đổi theo seed.
-- **Chốt bài:** điền `TEAM.md` (`43f99dc`, `7baca51`), merge nhánh của Sang (`9c3b872`), ghi commit chốt `7baca51` vào ADR (`b3e0987`).
+- **Chốt bài:** điền `TEAM.md` (`43f99dc`, `7baca51`), merge nhánh của Sang (`9c3b872`), báo cáo của Trường (`b718ac9`) và test của Tuấn Anh (`f500a41`, giữ bản báo cáo mới hơn của Tuấn Anh và file mẫu `MSSV_HoTen.md` mà nhánh đó đã xóa), ghi commit chốt vào ADR.
 
 Quyết định kỹ thuật:
 
@@ -32,10 +32,10 @@ Quyết định kỹ thuật:
 
 ## 4. Bằng chứng
 
-- Commit: `8471efe`, `3a7c959`, `4ab0346`, `452ff97`, `2509db5`, `43f99dc`, `9c3b872`, `7baca51`, `b3e0987`.
+- Commit: `8471efe`, `3a7c959`, `4ab0346`, `452ff97`, `2509db5`, `43f99dc`, `9c3b872`, `7baca51`, `b718ac9`, `f500a41`.
 - Test: `src/tests/test_integration_shapes.py` (22 test).
 - Kết quả trên commit chốt, chạy trong `src/`:
-  - `python -m pytest -q` → 108 passed, 5 xfailed
+  - `python -m pytest -q` → 156 passed, 5 xfailed
   - `python -m pytest -q -m student -o addopts=` → 248 passed
   - `python -m lab8.crash_test --count 20 --out reports/crash.json` → `crash_safety` 20/20
   - `python -m lab8.check_submission` → 0 FAIL, 0 WARN

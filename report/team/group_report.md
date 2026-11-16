@@ -52,7 +52,7 @@ Bộ public: 14 claim (T01–T14) × 5 seed `11,22,33,44,55` = 70 trial mỗi sh
 
 - Trial fail duy nhất: `R-swarm-C-002-s55` (T02, seed 55) — `status resolved != denied`. Đây là điểm yếu cố ý của swarm: ở seed chia hết cho 5, swarm tin số ngày trong ticket ("trễ 5 ngày") thay vì cột `delay_days` (2 ngày). Ba shape của nhóm đọc order row nên pass trial này.
 - Crash safety: **20/20** (`src/reports/crash.json`).
-- Ma trận student: 248 passed / 0 failed trên cả 4 shape; cổng host `python -m pytest -q`: 64 passed.
+- Ma trận student: 248 passed / 0 failed trên cả 4 shape; cổng host `python -m pytest -q` (gồm test nhóm thêm): 156 passed, 5 xfailed (5 test của Long viết cho thiết kế orchestrator khác, xem `TEAM.md`).
 - Ablation R1 (workflow vs orchestrator, `src/reports/ablation_r1.json`): pass rate không đổi, cost/success +33%, mean steps +1.86 — xem `research_card.md`.
 - Tự kiểm trên `student_drop/`: chưa chạy (chờ giảng viên phát bộ hidden).
 
