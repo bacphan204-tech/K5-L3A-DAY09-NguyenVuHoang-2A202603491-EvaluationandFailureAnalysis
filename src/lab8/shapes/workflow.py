@@ -30,7 +30,7 @@ ones. `lab8.trace.Trace` does this; your own tracer is fine if it matches.
 from __future__ import annotations
 
 from lab8.db import connect
-from lab8.durability import InjectedCrash, issue_refund
+from lab8.durability import issue_refund
 from lab8.schemas import Budget, RunResult, make_run_id
 from lab8.shapes.common import finish, safe_dump
 from lab8.tools import compute_compensation, get_claim_view, lookup_order, tool_cost
@@ -65,7 +65,7 @@ def run_claim(
                 error_reason="unknown_claim",
             )
 
-        trace.add("claim_lookup", {"found": True, "claim_id": claim_id})
+        trace.add("claim_lookup", {"found": True})
         order_id = claim.get("order_id")
         if not order_id:
             trace.add("decision", {"status": "needs_info", "reason": "missing_order_id"})
@@ -88,7 +88,6 @@ def run_claim(
             {
                 "visible": order_view["visible"],
                 "reason": order_view["reason"],
-                "order_id": order_id,
             },
         )
         if not order_view["visible"]:
@@ -131,12 +130,9 @@ def run_claim(
                 error_reason=quote["reason"],
             )
 
-        try:
-            outcome = issue_refund(conn, claim_id, proposal, crash_at=crash_at)
-        except InjectedCrash:
-            trace.add("crash", {"at": crash_at})
-            trace.write()
-            raise
+        trace.add("host_request", {"tool": "issue_refund", "proposal_amount": proposal})
+        trace.write()
+        outcome = issue_refund(conn, claim_id, proposal, crash_at=crash_at)
 
         trace.add(
             "refund",
