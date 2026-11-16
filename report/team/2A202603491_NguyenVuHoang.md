@@ -4,7 +4,7 @@
 
 - Họ tên: Nguyễn Vũ Hoàng
 - MSSV: 2A202603491
-- Email: (bổ sung email của mình)
+- Email: 26ai.hoangnv11@vinuni.edu.vn
 - GitHub: [bacphan204-tech](https://github.com/bacphan204-tech)
 
 ## 2. Phần việc phụ trách
@@ -24,12 +24,12 @@ Em phụ trách Shape A — `workflow`: xây dựng luồng xử lý claim theo 
 Đã chạy các lệnh sau trong thư mục `src/`:
 
 ```powershell
-python -m pytest -q --basetemp=.pytest-tmp tests/test_workflow.py
-python -m pytest -q --basetemp=.pytest-tmp -m student -o addopts= -k workflow
-python -m pytest -q --basetemp=.pytest-tmp
+.\.venv\Scripts\python.exe -m pytest -q --basetemp=.pytest-tmp tests/test_workflow.py
+.\.venv\Scripts\python.exe -m pytest -q --basetemp=.pytest-tmp -m student -o addopts= -k workflow
+.\.venv\Scripts\python.exe -m pytest -q --basetemp=.pytest-tmp
 ```
 
-Kết quả lần lượt: **1 passed**, **62 passed** cho workflow, và **55 passed** ở host suite (248 test student được bỏ qua). Các thay đổi đã push lên nhánh `NguyenVuHoang-2A202603491`.
+Kết quả lần lượt: **1 passed**, **62 passed** cho workflow, và **55 passed** ở host suite (248 test student được bỏ qua). Commit workflow đã được push lên nhánh `NguyenVuHoang-2A202603491`.
 
 ## 5. Công cụ AI đã dùng
 
