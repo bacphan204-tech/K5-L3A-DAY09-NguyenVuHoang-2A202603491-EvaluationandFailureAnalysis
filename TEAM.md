@@ -33,7 +33,7 @@ Gợi ý chia vai:
 | Đào Thị Thu Phương (2A202603457) | Integration | `8471efe` merge các nhánh shape vào `main`; `3a7c959` benchmark 4 shape × 5 seed; `4ab0346` ADR, research card, ablation R1, báo cáo nhóm; `452ff97` tích hợp test của Long | `src/tests/test_integration_shapes.py` (22 test, commit `2509db5`) |
 | Nguyễn Vũ Hoàng (2A202603491) | Workflow | `53057be` cài shape A `workflow` | `src/tests/test_workflow.py` (1 test) |
 | Đỗ Tuấn Anh (2A202603465) | Single agent | `90f7931` cài shape B `single` (ReAct ≤ 8 bước, model chỉ chọn tool đọc) | Chưa có, cần bổ sung |
-| Nguyễn Ngọc Sang (2A202603444) | Eval/report | Chưa có commit | `src/tests/test_eval_report_consistency.py` (7 test, chưa commit, Sang cần tự commit) |
+| Nguyễn Ngọc Sang (2A202603444) | Eval/report | `bd96f04` (nhánh `ngocsangnguyen`, merge vào `main` ở `9c3b872`): test eval/report, ADR, research card, báo cáo nhóm, `reports/ablation_r1.json` | `src/tests/test_eval_report_consistency.py` (7 test: benchmark đúng quy cách, tóm tắt khớp trial thô, số liệu và run id trong ADR khớp file JSON) |
 | Phan Nhật Trường (2A202603459) | Ledger/policy/crash | `eaed81d` cài shape C `orchestrator` đang dùng trong `main`; sửa workflow (không bắt `InjectedCrash`, bỏ `claim_id`/`order_id` khỏi trace); crash suite `reports/crash.json` 20/20 | `src/tests/test_shape_crash_recovery.py` (9 test) |
 
 ## Cá nhân
