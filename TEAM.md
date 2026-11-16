@@ -5,7 +5,7 @@
 - Tên nhóm: PSTL
 - Lớp: L3A
 - Repo nhóm: https://github.com/daothithuphuong-1801/K5-L3A-DAY08-PSTL-FromWorkflowsToAgents.git 
-- URL repo, nhánh nộp, commit chốt: https://github.com/daothithuphuong-1801/K5-L3A-DAY08-PSTL-FromWorkflowsToAgents · nhánh `main` · commit chốt: `7baca51` (trùng `report/team/decision_adr.md`)
+- URL repo, nhánh nộp, commit chốt: https://github.com/daothithuphuong-1801/K5-L3A-DAY08-PSTL-FromWorkflowsToAgents · nhánh `main` · commit chốt: `40cd3b8` (trùng `report/team/decision_adr.md`)
 
 ## Thành viên
 
