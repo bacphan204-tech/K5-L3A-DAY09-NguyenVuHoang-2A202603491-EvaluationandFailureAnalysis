@@ -52,6 +52,8 @@ Quyết định kỹ thuật:
 
 ## 6. Tự đánh giá
 
-<!-- Phương tự viết: điều làm tốt, điều chưa tốt, điều học được. Không để AI viết phần này (RULES.md). -->
+## 6. Tự đánh giá
+
+Tôi đã hoàn thành tốt vai trò Integration, đảm bảo tích hợp code, kiểm thử và hoàn thiện bài nộp nhóm. Qua dự án, tôi cải thiện kỹ năng sử dụng Git, xử lý xung đột, kiểm thử hệ thống và phối hợp nhóm. Tuy nhiên, tôi cần nâng cao khả năng xử lý các lỗi kỹ thuật phức tạp và tối ưu quy trình tích hợp. Tôi cũng học được cách sử dụng AI hiệu quả nhưng vẫn chủ động kiểm tra và đánh giá kết quả.
 
 ...
