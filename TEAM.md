@@ -2,17 +2,21 @@
 
 ## Thông tin nhóm
 
-- Tên nhóm:
+- Tên nhóm: PSTL
 - Lớp: L3A
-- Repo nhóm: `K5-L3A-DAY08-TenNhom-FromWorkflowsToAgents` (xem [SUBMISSION.md](SUBMISSION.md))
-- URL repo, nhánh nộp, commit chốt:
+- Repo nhóm: https://github.com/daothithuphuong-1801/K5-L3A-DAY08-PSTL-FromWorkflowsToAgents.git 
+- URL repo, nhánh nộp, commit chốt: https://github.com/daothithuphuong-1801/K5-L3A-DAY08-PSTL-FromWorkflowsToAgents · nhánh `main` · commit chốt: (điền khi chốt, trùng `report/team/decision_adr.md`)
 
 ## Thành viên
 
 | STT | Họ tên | MSSV | Email | GitHub | Vai trò |
 | --: | ------ | ---- | ----- | ------ | ------- |
-|   1 | Phạm Như Long | 2A202603395 |       | Long1806T | Orchestrator + handoff (shape C) |
-|   2 |        |      |       |        |         |
+|   1 | Phạm Như Long | 2A202603395 |    plong20051901@gmail.com   | Long1806T | Orchestrator |
+|   2 |    Đào Thị Thu Phương    | 2A202603457   | phuongdtt1824@gmail.com| daothithuphuong-1801       |   intergration      |
+| 3 | Nguyễn Vũ Hoàng | 2A202603491 | bacphan204@gmail.com | bacphan204-tech | workflow |
+| 4 | Đỗ Tuấn Anh | 2A202603465 | dotuananh30122004@gmail.com | tuancui0 | single-agent |
+| 5 | Nguyễn Ngọc Sang | 2A202603444 | nguyenngocsang051003@gmail.com | ngocsangnguyen | eval/report| 
+| 6 | Phan Nhật Trường | 2A202603459 | truong02052004@gmail.com | pnt2504 | ledger/policy/crash |
 
 Gợi ý chia vai:
 
@@ -25,7 +29,12 @@ Gợi ý chia vai:
 
 | Người | Vai | Commit | Test đã thêm hoặc sửa |
 | --- | --- | --- | --- |
-| Phạm Như Long (2A202603395) | Orchestrator + handoff (shape C) | `b00d406` feat(orchestrator): implement shape C with read-only investigators and allowlisted handoffs (nhánh `feature/orchestrator`) | `src/tests/test_orchestrator_handoff.py` (20 test mới) |
+| Phạm Như Long (2A202603395) | Orchestrator | `edf344c` (cherry-pick từ `b00d406` trên nhánh `feature/orchestrator`): bộ test shape C; `f31ac10` báo cáo cá nhân. Bản `orchestrator.py` riêng của Long không merge vào `main` (nhóm giữ bản `eaed81d`) | `src/tests/test_orchestrator_handoff.py` (20 test: 15 pass, 5 `xfail` vì viết cho thiết kế 2 investigator) |
+| Đào Thị Thu Phương (2A202603457) | Integration | `8471efe` merge các nhánh shape vào `main`; `3a7c959` benchmark 4 shape × 5 seed; `4ab0346` ADR, research card, ablation R1, báo cáo nhóm; `452ff97` tích hợp test của Long | `src/tests/test_integration_shapes.py` (22 test, commit `2509db5`) |
+| Nguyễn Vũ Hoàng (2A202603491) | Workflow | `53057be` cài shape A `workflow` | `src/tests/test_workflow.py` (1 test) |
+| Đỗ Tuấn Anh (2A202603465) | Single agent | `90f7931` cài shape B `single` (ReAct ≤ 8 bước, model chỉ chọn tool đọc) | Chưa có, cần bổ sung |
+| Nguyễn Ngọc Sang (2A202603444) | Eval/report | Chưa có commit | `src/tests/test_eval_report_consistency.py` (7 test, chưa commit, Sang cần tự commit) |
+| Phan Nhật Trường (2A202603459) | Ledger/policy/crash | `eaed81d` cài shape C `orchestrator` đang dùng trong `main`; sửa workflow (không bắt `InjectedCrash`, bỏ `claim_id`/`order_id` khỏi trace); crash suite `reports/crash.json` 20/20 | `src/tests/test_shape_crash_recovery.py` (9 test) |
 
 ## Cá nhân
 
@@ -52,20 +61,3 @@ Sao chép mục dưới đây cho từng thành viên.
 ### Bằng chứng
 
 -
-
-## 2A202603395_PhamNhuLong
-
-### Phần việc phụ trách
-
-- Shape C `orchestrator` (`src/lab8/shapes/orchestrator.py`): orchestrator, handoff allowlist, investigator chỉ có tool đọc, trace an toàn.
-
-### Đóng góp cụ thể
-
-- Viết shape C: orchestrator đọc claim qua `get_claim_view`, giao việc cho 2 investigator chỉ đọc bằng `make_handoff` (`lookup_order` + `lookup_refund_history`; `lookup_policy`), tự tính quote bằng `compute_compensation`, truyền quote đầy đủ và `crash_at` vào `durability.issue_refund`.
-- Thêm `src/tests/test_orchestrator_handoff.py` (20 test): handoff allowlist, trace không lộ secret/PII/ticket, ticket injection, trần theo đơn, approval mượn, homoglyph, amount conflict, crash rồi resume, không ném exception.
-
-### Bằng chứng
-
-- Commit `b00d406` (`feat(orchestrator): implement shape C with read-only investigators and allowlisted handoffs`) trên nhánh `feature/orchestrator`.
-- `python -m pytest -q -m student -o addopts= -k orchestrator` → 62 passed; `python -m pytest -q` → 74 passed.
-- Báo cáo cá nhân: [`report/team/2A202603395_PhamNhuLong.md`](report/team/2A202603395_PhamNhuLong.md).
